@@ -1,0 +1,40 @@
+{
+    "name": "quanlyktx",
+    "version": "1.0.0",
+    "main": "src/index.js",
+    "scripts": {
+        "start": "nodemon --inspect src/index.js",
+        "watch": "node-sass --watch src/resources/scss/ --output src/public/css/",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/duongpa-apd/ths_quanlyktx.git"
+    },
+    "keywords": [
+        "ths",
+        "ktx",
+        "quanlyktx"
+    ],
+    "author": "duongpa",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/duongpa-apd/ths_quanlyktx/issues"
+    },
+    "homepage": "https://github.com/duongpa-apd/ths_quanlyktx#readme",
+    "description": "",
+    "dependencies": {
+        "express": "^4.19.2",
+        "express-handlebars": "^8.0.1",
+        "mongodb": "^6.9.0",
+        "mongoose": "^8.6.2"
+    },
+    "devDependencies": {
+        "husky": "^9.1.6",
+        "lint-staged": "^15.2.10",
+        "morgan": "^1.10.0",
+        "node-sass": "^9.0.0",
+        "nodemon": "^3.1.4",
+        "prettier": "^3.3.3"
+    }
+}
