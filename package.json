@@ -2,6 +2,7 @@
     "name": "quanlyktx",
     "version": "1.0.0",
     "main": "src/index.js",
+    "type": "module",
     "scripts": {
         "start": "nodemon --inspect src/index.js",
         "watch": "node-sass --watch src/resources/scss/ --output src/public/css/",

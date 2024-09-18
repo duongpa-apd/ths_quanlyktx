@@ -8,13 +8,19 @@ YÊU CẦU CHUNG:
 -   Xây dựng bộ dữ liệu mẫu, thực thi CSDL trong Hệ quản trị CSDL và nhập các dữ liệu mẫu.
 -   Viết các câu lệnh truy vấn theo yêu cầu.
 -   Nâng cao: Viết chương trình hoặc phát triển ứng dụng thao tác với CSDL.
+
     YÊU CẦU CHO NHÓM 01:
+
 -   Sử dụng MongoDB hoặc AsterixDB để tạo CSDL và nhập dữ liệu mẫu
 -   Sử dụng NodeJS để viết ứng dụng thao tác CSDL. Trường hợp không sử dụng được NodeJS để viết ứng dụng thì phải tạo dữ liệu và viết câu lệnh thao tác dữ liệu trên cả MongoDB và AsterixDB.
+
     YÊU CẦU CHO NHÓM 02:
+
 -   Sử dụng Hệ quản trị CSDL MySQL để xây dựng CSDL và nhập dữ liệu mẫu (viết câu lệnh tạo bảng và câu lệnh nhập dữ liệu).
 -   Sử dụng ngôn ngữ Java hoặc các framework như Spring để viết chương trình thao tác CSDL.
+
     YÊU CẦU NỘP:
+
 -   Bản thiết kế CSDL (nộp file .pdf).
 -   File script chứa các câu lệnh tạo bảng, nhập dữ liệu, và các câu lệnh truy vấn theo yêu cầu (nộp file .sql).
 -   Chương trình thao tác CSDL (nộp link git hoặc codesandbox).

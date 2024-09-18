@@ -1,56 +1,24 @@
+import mongoose from 'mongoose';
 const MONGODB_URI =
-    'mongodb+srv://admin:BiKLGs7Yq6QGir8D@cluster0-phananhduong.iseov.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0-PhanAnhDuong';
-const DATABASE_NAME = 'dormitory-management';
-
-// const mongoose = require('mongoose');
-// const { MongoClient, ServerApiVersion } = require('mongodb');
-
-// let databaseInstance = null;
-
-// const mongoClientInstance = new MongoClient(MONGODB_URI, {
-//     serverApi: {
-//         version: ServerApiVersion.v1,
-//         strict: true,
-//         deprecationErrors: true,
-//     },
-// });
-
-// async function connect() {
-//     try {
-//         await mongoClientInstance.connect();
-//         databaseInstance = mongoClientInstance.db(DATABASE_NAME);
-//         console.log('connect to db successfuly');
-//     } catch (error) {
-//         console.log('connect to db failue');
-//     }
-// }
-
-// const getdb = () => {
-//     if (!databaseInstance) throw new Error('Must connect to Database');
-//     return databaseInstance;
-// };
-
-// module.exports = { connect, getdb };
-
-const mongoose = require('mongoose');
+    'mongodb+srv://admin:BiKLGs7Yq6QGir8D@cluster0-phananhduong.iseov.mongodb.net/dormitory-management?retryWrites=true&w=majority&appName=Cluster0-PhanAnhDuong';
 
 let databaseInstance = null;
 
-async function connect() {
+const connect = async () => {
     try {
-        // Kết nối mongoose với MongoDB Atlas
-        await mongoose.connect(MONGODB_URI);
-
-        databaseInstance = mongoose.connection.db;
+        // Kết nối Mongoose với MongoDB Atlas
+        const { connection } = await mongoose.connect(MONGODB_URI);
+        databaseInstance = connection.db;
         console.log('Connected to MongoDB Atlas successfully');
     } catch (error) {
-        console.log('Failed to connect to MongoDB Atlas:', error);
+        console.error('Failed to connect to MongoDB Atlas:', error);
+        throw error;
     }
-}
+};
 
 const getdb = () => {
-    if (!databaseInstance) throw new Error('Must connect to Database');
+    if (!databaseInstance) throw new Error('Must connect to Database first');
     return databaseInstance;
 };
 
-module.exports = { connect, getdb };
+export default { connect, getdb };

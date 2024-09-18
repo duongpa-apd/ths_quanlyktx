@@ -1,10 +1,10 @@
-const path = require('path');
-const express = require('express');
-const morgan = require('morgan');
-const { engine } = require('express-handlebars');
+// const path = require('path');
+import path from 'path';
+import express from 'express';
+import { engine } from 'express-handlebars';
 
-const route = require('./routes');
-const db = require('./config/db');
+import route from './routes/index.js';
+import db from './config/db/index.js';
 
 //Connect db
 db.connect();
@@ -12,7 +12,7 @@ db.connect();
 const app = express();
 const port = 3000;
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(process.cwd(), 'public')));
 app.use(
     express.urlencoded({
         extended: true,
@@ -28,11 +28,11 @@ app.engine(
     }),
 );
 app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'resources\\views'));
+app.set('views', path.join(process.cwd(), 'resources\\views'));
 
 // Routes init
 route(app);
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
+    console.log(`App listening on port ${port}`);
 });

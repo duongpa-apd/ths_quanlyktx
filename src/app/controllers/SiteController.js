@@ -1,4 +1,4 @@
-const Student = require('../models/Student');
+import Student from '../models/Student.js';
 
 class SiteController {
     //[GET]
@@ -18,4 +18,4 @@ class SiteController {
     }
 }
 
-module.exports = new SiteController();
+export default new SiteController();
