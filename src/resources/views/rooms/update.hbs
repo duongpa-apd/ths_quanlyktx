@@ -1,0 +1,40 @@
+<div class='container'>
+    <h2>Cập nhật phòng: {{room.roomNumber}}</h2>
+    <form method='POST' action='/rooms/update/{{room._id}}'>
+        <div class='form-group'>
+            <label for='roomType'>Loại Phòng</label>
+            <input
+                type='text'
+                class='form-control'
+                id='roomType'
+                name='roomType'
+                value='{{room.roomType}}'
+                required
+            />
+        </div>
+        <div class='form-group'>
+            <label for='price'>Giá Phòng</label>
+            <input
+                type='number'
+                class='form-control'
+                id='price'
+                name='price'
+                value='{{room.price}}'
+                required
+            />
+        </div>
+        <div class='form-group'>
+            <label for='maxOccupancy'>Số Người Tối Đa</label>
+            <input
+                type='number'
+                class='form-control'
+                id='maxOccupancy'
+                name='maxOccupancy'
+                value='{{room.maxOccupancy}}'
+                required
+            />
+        </div>
+        <button type='submit' class='btn btn-primary'>Cập Nhật</button>
+        <a href='/rooms' class='btn btn-secondary'>Quay lại danh sách phòng</a>
+    </form>
+</div>

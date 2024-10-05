@@ -1,0 +1,55 @@
+<div class='container'>
+    <h2>Danh sách sinh viên KTX và chi phí dịch vụ</h2>
+
+    <!-- Phần chọn sinh viên -->
+    <form id='studentFilterForm' action='/payments' method='GET' class='mb-3'>
+        <div class='form-group'>
+            <label for='studentSelect'>Chọn sinh viên</label>
+            <select id='studentSelect' name='studentId' class='form-control'>
+                <option value=''>Chọn tất cả sinh viên</option>
+                {{#each students}}
+                    <option value='{{this._id}}'>{{this.name}}
+                        - Mã sinh viên:
+                        {{this.studentId}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <button type='submit' class='btn btn-primary'>Xem thông tin</button>
+    </form>
+
+    <!-- Danh sách sinh viên và chi phí -->
+    {{#if payments}}
+        <table class='table table-bordered'>
+            <thead>
+                <tr>
+                    <th>TT</th>
+                    <th>Mã Sinh Viên</th>
+                    <th>Tên Sinh Viên</th>
+                    <th>Phòng Số</th>
+                    <th>Thời Gian</th>
+                    <th>Tiền Phòng</th>
+                    <th>Tiền Dịch Vụ</th>
+                    <th>Tiền Xe</th>
+                    <th>Tổng Cộng</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each payments}}
+                    <tr>
+                        <td>{{incrementIndex @index}}</td>
+                        <td>{{this.studentId}}</td>
+                        <td>{{this.name}}</td>
+                        <td>{{this.roomNumber}}</td>
+                        <td>{{this.yearToPay}}/{{this.monthToPay}}</td>
+                        <td>{{formatCurrency this.roomPrice}}</td>
+                        <td>{{formatCurrency this.serviceTotal}}</td>
+                        <td>{{formatCurrency this.parkingTotal}}</td>
+                        <td>{{formatCurrency this.totalAmount}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    {{else}}
+        <p>Không có dữ liệu chi phí cho sinh viên.</p>
+    {{/if}}
+</div>

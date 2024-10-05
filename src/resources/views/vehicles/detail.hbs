@@ -1,0 +1,22 @@
+<div class='container'>
+    <h2>Chi tiết xe</h2>
+    <div class='mb-3'>
+        <strong>Biển số xe:</strong>
+        {{vehicle.licensePlate}}<br />
+        <strong>Loại xe:</strong>
+        {{vehicle.vehicleType}}<br />
+        <strong>Sinh viên sử dụng:</strong>
+        {{vehicle.studentInfo.studentId}}
+        -
+        {{vehicle.studentInfo.name}}<br />
+    </div>
+    <a href='/vehicles/{{vehicle._id}}/edit' class='btn btn-warning'>Sửa</a>
+    <form
+        action='/vehicles/{{vehicle._id}}/delete'
+        method='POST'
+        style='display:inline;'
+    >
+        <button class='btn btn-danger'>Xóa</button>
+    </form>
+    <a href='/vehicles' class='btn btn-secondary'>Quay lại danh sách xe</a>
+</div>

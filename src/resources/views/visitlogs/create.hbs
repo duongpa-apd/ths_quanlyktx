@@ -1,0 +1,46 @@
+<div class='container'>
+    <h2>Thêm lần đến thăm</h2>
+
+    <form action='/guests/{{guest._id}}/visitlogs/create' method='POST'>
+        <div class='form-group'>
+            <label for='studentId'>Chọn sinh viên được thăm</label>
+            <select
+                class='form-control'
+                id='studentId'
+                name='studentId'
+                required
+            >
+                {{#each students}}
+                    <option value='{{this._id}}'>
+                        {{this.name}}
+                        - Phòng:
+                        {{this.roomDetails.roomNumber}}
+                        - Mã SV:
+                        {{this.studentId}}
+                        - CCCD:
+                        {{this.identityCard}}
+                        - Ngày sinh:
+                        {{formatDate this.birthDate}}
+                    </option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div class='form-group'>
+            <label for='visitDate'>Ngày đến thăm</label>
+            <input
+                type='date'
+                class='form-control'
+                id='visitDate'
+                name='visitDate'
+                value='{{today}}'
+                required
+            />
+        </div>
+
+        <button type='submit' class='btn btn-primary'>Thêm lần đến thăm</button>
+    </form>
+
+    <a href='/guests/{{guest._id}}' class='btn btn-secondary'>Quay lại chi tiết
+        khách</a>
+</div>

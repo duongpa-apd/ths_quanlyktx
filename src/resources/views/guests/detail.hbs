@@ -1,0 +1,39 @@
+<div class='container'>
+    <h2>Chi tiết khách: {{guest.name}}</h2>
+    <div class='mb-3'>
+        <strong>CMT/CCCD:</strong>
+        {{guest.identityCard}}<br />
+        <strong>Ngày Sinh:</strong>
+        {{formatDate guest.birthDate}}<br />
+    </div>
+
+    <h3>Lịch sử các lần đến thăm</h3>
+    {{#if visitLogs.length}}
+        <table class='table table-bordered'>
+            <thead>
+                <tr>
+                    <th>Ngày đến thăm</th>
+                    <th>Sinh viên được thăm</th>
+                    <th>Phòng</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each visitLogs}}
+                    <tr>
+                        <td>{{this.visitDate}}</td>
+                        <td>{{this.studentDetails.name}}</td>
+                        <td>{{this.roomDetails.roomNumber}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    {{else}}
+        <p>Chưa có lần đến thăm nào.</p>
+    {{/if}}
+
+    <a
+        href='/guests/{{guest._id}}/visitlogs/create'
+        class='btn btn-primary'
+    >Thêm lần đến thăm</a>
+    <a href='/guests' class='btn btn-secondary'>Quay lại danh sách khách</a>
+</div>

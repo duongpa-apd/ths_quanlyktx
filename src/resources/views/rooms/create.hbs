@@ -1,0 +1,57 @@
+<div class='container'>
+    <h2>Thêm Phòng Mới</h2>
+    <form action='/rooms/create' method='POST'>
+        <div class='form-group'>
+            <label for='floor'>Tầng</label>
+            <select class='form-control' id='floor' name='floor' required>
+                {{#each floors}}
+                    <option value='{{this}}'>{{this}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class='form-group'>
+            <label for='roomOnFloor'>Phòng số</label>
+            <select
+                class='form-control'
+                id='roomOnFloor'
+                name='roomOnFloor'
+                required
+            >
+                {{#each roomsOnFloor}}
+                    <option value='{{this}}'>{{this}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class='form-group'>
+            <label for='roomType'>Loại phòng</label>
+            <input
+                type='text'
+                class='form-control'
+                id='roomType'
+                name='roomType'
+                required
+            />
+        </div>
+        <div class='form-group'>
+            <label for='price'>Giá phòng</label>
+            <input
+                type='number'
+                class='form-control'
+                id='price'
+                name='price'
+                required
+            />
+        </div>
+        <div class='form-group'>
+            <label for='maxOccupancy'>Số lượng tối đa</label>
+            <input
+                type='number'
+                class='form-control'
+                id='maxOccupancy'
+                name='maxOccupancy'
+                required
+            />
+        </div>
+        <button type='submit' class='btn btn-primary'>Thêm Phòng</button>
+    </form>
+</div>

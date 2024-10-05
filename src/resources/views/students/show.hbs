@@ -1,0 +1,45 @@
+<div class='container'>
+    <h2>Danh sách sinh viên</h2>
+    <a href='/students/create' class='btn btn-primary mb-3'>Thêm Sinh Viên</a>
+    <table class='table table-bordered'>
+        <thead>
+            <tr>
+                <th>Mã Sinh Viên</th>
+                <th>Họ Tên</th>
+                <th>Phòng</th>
+                <th>Ngày Vào Ở</th>
+                <th>Hành Động</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each students}}
+                <tr>
+                    <td>{{this.studentId}}</td>
+                    <td>{{this.name}}</td>
+                    <td>{{this.roomId}}</td>
+                    <td>{{formatDate this.moveInDate}}</td>
+                    <td>
+                        <a
+                            href='/students/detail/{{this._id}}'
+                            class='btn btn-info'
+                        >Chi Tiết</a>
+                        <a
+                            href='/students/update/{{this._id}}'
+                            class='btn btn-warning'
+                        >Cập Nhật</a>
+                        <form
+                            action='/students/delete/{{this._id}}'
+                            method='POST'
+                            style='display:inline;'
+                        >
+                            <button
+                                type='submit'
+                                class='btn btn-danger'
+                            >Xoá</button>
+                        </form>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

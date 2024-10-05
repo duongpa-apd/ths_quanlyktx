@@ -1,0 +1,57 @@
+<div class='container'>
+    <h2>Liệt kê dịch vụ sinh viên sử dụng</h2>
+
+    <!-- Phần chọn khoảng thời gian -->
+    <form
+        id='serviceUsageFilterForm'
+        action='/service-usages'
+        method='GET'
+        class='mb-3'
+    >
+        <div class='form-group'>
+            <label for='startDate'>Thời điểm bắt đầu</label>
+            <input
+                type='datetime-local'
+                id='startDate'
+                name='startDate'
+                class='form-control'
+            />
+        </div>
+        <div class='form-group'>
+            <label for='endDate'>Thời điểm kết thúc</label>
+            <input
+                type='datetime-local'
+                id='endDate'
+                name='endDate'
+                class='form-control'
+            />
+        </div>
+        <button type='submit' class='btn btn-primary'>Xem thông tin</button>
+    </form>
+
+    <!-- Bảng hiển thị kết quả -->
+    {{#if serviceUsageDetails}}
+        <table class='table table-bordered'>
+            <thead>
+                <tr>
+                    <th>TT</th>
+                    <th>Tên sinh viên</th>
+                    <th>Dịch vụ</th>
+                    <th>Tổng tiền dịch vụ</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each serviceUsageDetails}}
+                    <tr>
+                        <td>{{incrementIndex @index}}</td>
+                        <td>{{this.studentName}}</td>
+                        <td>{{this.serviceName}}</td>
+                        <td>{{formatCurrency this.totalServiceAmount}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    {{else}}
+        <p>Không có dữ liệu dịch vụ trong khoảng thời gian này.</p>
+    {{/if}}
+</div>

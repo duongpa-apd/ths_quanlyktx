@@ -1,0 +1,42 @@
+<div class='container'>
+    <h2>Danh sách xe</h2>
+    <a href='/vehicles/create' class='btn btn-primary mb-3'>Thêm xe mới</a>
+    <table class='table table-bordered'>
+        <thead>
+            <tr>
+                <th>Biển số</th>
+                <th>Loại xe</th>
+                <th>Sinh viên</th>
+                <th>Ngày đăng ký</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each vehicles}}
+                <tr>
+                    <td>{{this.licensePlate}}</td>
+                    <td>{{this.vehicleType}}</td>
+                    <td>{{this.studentName}}</td>
+                    <td>{{this.registerDate}}</td>
+                    <td>
+                        <a
+                            href='/vehicles/detail/{{this._id}}'
+                            class='btn btn-info'
+                        >Chi tiết</a>
+                        <a
+                            href='/vehicles/update/{{this._id}}'
+                            class='btn btn-warning'
+                        >Sửa</a>
+                        <form
+                            action='/vehicles/delete/{{this._id}}'
+                            method='POST'
+                            style='display:inline;'
+                        >
+                            <button class='btn btn-danger'>Xóa</button>
+                        </form>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

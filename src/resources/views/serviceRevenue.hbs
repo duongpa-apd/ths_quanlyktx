@@ -1,0 +1,32 @@
+<div class='container'>
+    <h2>Doanh thu dịch vụ theo tháng</h2>
+
+    <!-- Bảng hiển thị doanh thu dịch vụ -->
+    {{#if serviceRevenues}}
+        <table class='table table-bordered'>
+            <thead>
+                <tr>
+                    <th>TT</th>
+                    <th>Tên dịch vụ</th>
+                    <th>Năm</th>
+                    <th>Tháng</th>
+                    <th>Doanh thu (VND)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each serviceRevenues}}
+                    <tr>
+                        <td>{{incrementIndex @index}}</td>
+                        <td>{{this.serviceName}}</td>
+                        <td>{{this.year}}</td>
+                        <td>{{this.month}}</td>
+                        <td>{{formatCurrency this.totalRevenue}}</td>
+                        <!-- Format tiền tệ -->
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    {{else}}
+        <p>Không có dữ liệu doanh thu dịch vụ.</p>
+    {{/if}}
+</div>

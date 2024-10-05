@@ -1,0 +1,37 @@
+<div class='container'>
+    <h2>Chi tiết phòng</h2>
+
+    <div class='room-info'>
+        <p><strong>Số phòng:</strong> {{room.roomNumber}}</p>
+        <p><strong>Loại phòng:</strong> {{room.roomType}}</p>
+        <p><strong>Giá thuê:</strong> {{room.price}} VND</p>
+        <p><strong>Số người tối đa:</strong> {{room.maxOccupancy}}</p>
+        <p><strong>Số người hiện tại:</strong> {{room.currentOccupancy}}</p>
+    </div>
+
+    {{#if hasStudents}}
+        <h3>Danh sách sinh viên đang ở</h3>
+        <table class='table table-bordered'>
+            <thead>
+                <tr>
+                    <th>Mã sinh viên</th>
+                    <th>Họ tên</th>
+                    <th>Ngày chuyển vào</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each room.students}}
+                    <tr>
+                        <td>{{this.studentId}}</td>
+                        <td>{{this.name}}</td>
+                        <td>{{formatDate this.moveInDate}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    {{else}}
+        <p>Hiện tại không có sinh viên nào ở trong phòng này.</p>
+    {{/if}}
+
+    <a href='/rooms' class='btn btn-secondary mt-3'>Quay lại danh sách phòng</a>
+</div>

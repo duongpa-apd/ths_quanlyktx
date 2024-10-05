@@ -1,0 +1,69 @@
+<div class='container'>
+    <h2>Cập Nhật Sinh Viên</h2>
+    <form method='POST' action='/students/update/{{student._id}}'>
+        <div class='form-group'>
+            <label for='studentId'>Mã Sinh Viên</label>
+            <input
+                type='text'
+                class='form-control'
+                name='studentId'
+                value='{{student.studentId}}'
+                required
+            />
+        </div>
+        <div class='form-group'>
+            <label for='name'>Tên Sinh Viên</label>
+            <input
+                type='text'
+                class='form-control'
+                name='name'
+                value='{{student.name}}'
+                required
+            />
+        </div>
+        <div class='form-group'>
+            <label for='identityCard'>CMND/CCCD</label>
+            <input
+                type='text'
+                class='form-control'
+                name='identityCard'
+                value='{{student.identityCard}}'
+                required
+            />
+        </div>
+        <div class='form-group'>
+            <label for='birthDate'>Ngày Sinh</label>
+            <input
+                type='date'
+                class='form-control'
+                name='birthDate'
+                value='{{birthDate}}'
+                required
+            />
+        </div>
+        <div class='form-group'>
+            <label for='studentClass'>Lớp</label>
+            <input
+                type='text'
+                class='form-control'
+                name='studentClass'
+                value='{{student.studentClass}}'
+                required
+            />
+        </div>
+        <div class='form-group'>
+            <label for='hometown'>Quê Quán</label>
+            <input
+                type='text'
+                class='form-control'
+                name='hometown'
+                value='{{student.hometown}}'
+                required
+            />
+        </div>
+
+        <button type='submit' class='btn btn-primary'>Cập Nhật</button>
+    </form>
+    <a href='/students' class='btn btn-secondary mt-3'>Quay lại danh sách sinh
+        viên</a>
+</div>

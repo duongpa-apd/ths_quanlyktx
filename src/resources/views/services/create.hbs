@@ -1,0 +1,45 @@
+<div class='container'>
+    <h2>Thêm dịch vụ mới</h2>
+    <form method='POST' action='/services/create'>
+        <div class='form-group'>
+            <label for='serviceCode'>Mã dịch vụ</label>
+            <input
+                type='text'
+                class='form-control'
+                id='serviceCode'
+                name='serviceCode'
+                required
+            />
+        </div>
+        <div class='form-group'>
+            <label for='serviceName'>Tên dịch vụ</label>
+            <input
+                type='text'
+                class='form-control'
+                id='serviceName'
+                name='serviceName'
+                required
+            />
+        </div>
+        <div class='form-group'>
+            <label for='price'>Giá</label>
+            <input
+                type='number'
+                class='form-control'
+                id='price'
+                name='price'
+                required
+            />
+        </div>
+        <div class='form-group'>
+            <label for='description'>Mô tả</label>
+            <textarea
+                class='form-control'
+                id='description'
+                name='description'
+            ></textarea>
+        </div>
+        <button type='submit' class='btn btn-primary'>Thêm</button>
+        <a href='/services' class='btn btn-secondary'>Hủy</a>
+    </form>
+</div>

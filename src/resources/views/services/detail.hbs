@@ -1,0 +1,22 @@
+<div class='container'>
+    <h2>Chi tiết dịch vụ</h2>
+    <div class='mb-3'>
+        <strong>Mã dịch vụ:</strong>
+        {{service.serviceCode}}<br />
+        <strong>Tên dịch vụ:</strong>
+        {{service.serviceName}}<br />
+        <strong>Giá:</strong>
+        {{service.price}}<br />
+        <strong>Mô tả:</strong>
+        {{service.description}}<br />
+    </div>
+    <a href='/services/{{service._id}}/edit' class='btn btn-warning'>Sửa</a>
+    <form
+        action='/services/{{service._id}}/delete'
+        method='POST'
+        style='display:inline;'
+    >
+        <button class='btn btn-danger'>Xóa</button>
+    </form>
+    <a href='/services' class='btn btn-secondary'>Quay lại danh sách dịch vụ</a>
+</div>

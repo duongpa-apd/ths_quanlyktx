@@ -1,0 +1,50 @@
+<div class='container'>
+    <h2>Danh sách phòng</h2>
+    <a href='/rooms/create' class='btn btn-primary mb-3'>Thêm Phòng Mới</a>
+    <table class='table table-bordered'>
+        <thead>
+            <tr>
+                <th>Số Phòng</th>
+                <th>Loại Phòng</th>
+                <th>Giá Phòng</th>
+                <th>Số Lượng Tối Đa</th>
+                <th>Hành Động</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each rooms}}
+                <tr>
+                    <td>{{this.roomNumber}}</td>
+                    <td>{{this.roomType}}</td>
+                    <td>{{this.price}}</td>
+                    <td>{{this.maxOccupancy}}</td>
+                    <td>
+                        <!-- Button xem chi tiết phòng -->
+                        <a
+                            href='/rooms/detail/{{this._id}}'
+                            class='btn btn-info'
+                        >Chi Tiết</a>
+
+                        <!-- Button cập nhật phòng -->
+                        <a
+                            href='/rooms/update/{{this._id}}'
+                            class='btn btn-warning'
+                        >Cập Nhật</a>
+
+                        <!-- Form xóa phòng -->
+                        <form
+                            method='POST'
+                            action='/rooms/delete/{{this._id}}'
+                            style='display:inline;'
+                        >
+                            <button
+                                type='submit'
+                                class='btn btn-danger'
+                            >Xoá</button>
+                        </form>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

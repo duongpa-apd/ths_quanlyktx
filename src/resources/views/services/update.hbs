@@ -1,0 +1,48 @@
+<div class='container'>
+    <h2>Sửa dịch vụ</h2>
+    <form method='POST' action='/services/{{service._id}}/update'>
+        <div class='form-group'>
+            <label for='serviceCode'>Mã dịch vụ</label>
+            <input
+                type='text'
+                class='form-control'
+                id='serviceCode'
+                name='serviceCode'
+                value='{{service.serviceCode}}'
+                required
+            />
+        </div>
+        <div class='form-group'>
+            <label for='serviceName'>Tên dịch vụ</label>
+            <input
+                type='text'
+                class='form-control'
+                id='serviceName'
+                name='serviceName'
+                value='{{service.serviceName}}'
+                required
+            />
+        </div>
+        <div class='form-group'>
+            <label for='price'>Giá</label>
+            <input
+                type='number'
+                class='form-control'
+                id='price'
+                name='price'
+                value='{{service.price}}'
+                required
+            />
+        </div>
+        <div class='form-group'>
+            <label for='description'>Mô tả</label>
+            <textarea
+                class='form-control'
+                id='description'
+                name='description'
+            >{{service.description}}</textarea>
+        </div>
+        <button type='submit' class='btn btn-primary'>Cập nhật</button>
+        <a href='/services' class='btn btn-secondary'>Hủy</a>
+    </form>
+</div>

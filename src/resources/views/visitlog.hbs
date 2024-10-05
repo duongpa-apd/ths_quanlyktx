@@ -1,0 +1,49 @@
+<div class='container'>
+    <h2>Liệt kê khách đến thăm sinh viên</h2>
+
+    <!-- Phần chọn thời gian -->
+    <form
+        id='visitLogsFilterForm'
+        action='/visit-logs'
+        method='GET'
+        class='mb-3'
+    >
+        <div class='form-group'>
+            <label for='timeRange'>Chọn khoảng thời gian</label>
+            <select id='timeRange' name='timeRange' class='form-control'>
+                <option value='week'>Tuần này</option>
+                <option value='month'>Tháng này</option>
+                <option value='all'>Tất cả</option>
+            </select>
+        </div>
+        <button type='submit' class='btn btn-primary'>Xem thông tin</button>
+    </form>
+
+    <!-- Bảng hiển thị kết quả -->
+    {{#if visitLogsDetails}}
+        <table class='table table-bordered'>
+            <thead>
+                <tr>
+                    <th>TT</th>
+                    <th>Tên sinh viên</th>
+                    <th>Tên khách</th>
+                    <th>Số CMND khách</th>
+                    <th>Số lần đến thăm</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each visitLogsDetails}}
+                    <tr>
+                        <td>{{incrementIndex @index}}</td>
+                        <td>{{this.studentName}}</td>
+                        <td>{{this.guestName}}</td>
+                        <td>{{this.guestIdentityCard}}</td>
+                        <td>{{this.visitCount}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    {{else}}
+        <p>Không có dữ liệu khách đến thăm trong khoảng thời gian này.</p>
+    {{/if}}
+</div>

@@ -1,0 +1,40 @@
+<div class='container'>
+    <h2>Danh sách dịch vụ</h2>
+    <a href='/services/create' class='btn btn-primary mb-3'>Thêm dịch vụ mới</a>
+    <table class='table table-bordered'>
+        <thead>
+            <tr>
+                <th>Mã dịch vụ</th>
+                <th>Tên dịch vụ</th>
+                <th>Giá</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each services}}
+                <tr>
+                    <td>{{this.serviceCode}}</td>
+                    <td>{{this.serviceName}}</td>
+                    <td>{{this.price}}</td>
+                    <td>
+                        <a
+                            href='/services/{{this._id}}'
+                            class='btn btn-info'
+                        >Chi tiết</a>
+                        <a
+                            href='/services/{{this._id}}/edit'
+                            class='btn btn-warning'
+                        >Sửa</a>
+                        <form
+                            action='/services/{{this._id}}/delete'
+                            method='POST'
+                            style='display:inline;'
+                        >
+                            <button class='btn btn-danger'>Xóa</button>
+                        </form>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

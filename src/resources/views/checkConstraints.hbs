@@ -1,0 +1,55 @@
+<div class='container'>
+    <h2>Kiểm tra ràng buộc sinh viên và phòng ở</h2>
+
+    <!-- Bảng hiển thị kiểm tra số lượng sinh viên trong phòng -->
+    <h3>Danh sách phòng vượt quá số sinh viên quy định</h3>
+    {{#if roomsOverCapacity.length}}
+        <table class='table table-bordered'>
+            <thead>
+                <tr>
+                    <th>Số phòng</th>
+                    <th>Tầng</th>
+                    <th>Số sinh viên</th>
+                    <th>Số lượng tối đa</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each roomsOverCapacity}}
+                    <tr>
+                        <td>{{this.roomNumber}}</td>
+                        <td>{{this.floor}}</td>
+                        <td>{{this.studentCount}}</td>
+                        <td>{{this.maxOccupancy}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    {{else}}
+        <p>Không có phòng nào vượt quá số sinh viên quy định.</p>
+    {{/if}}
+
+    <!-- Bảng hiển thị kiểm tra số lượng xe của sinh viên -->
+    <h3>Danh sách sinh viên có số lượng xe vượt quá quy định</h3>
+    {{#if studentsWithTooManyVehicles.length}}
+        <table class='table table-bordered'>
+            <thead>
+                <tr>
+                    <th>Mã sinh viên</th>
+                    <th>Tên sinh viên</th>
+                    <th>Số lượng xe</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each studentsWithTooManyVehicles}}
+                    <tr>
+                        <td>{{this.studentId}}</td>
+                        <td>{{this.studentName}}</td>
+                        <td>{{this.vehicleCount}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    {{else}}
+        <p>Không có sinh viên nào đăng ký quá 2 xe.</p>
+    {{/if}}
+</div>

@@ -1,0 +1,41 @@
+<div class='container'>
+    <h2>Thêm Khách Đến Chơi</h2>
+    <form
+        method='POST'
+        action='/guests/create'
+        enctype='application/x-www-form-urlencoded'
+    >
+        <div class='form-group'>
+            <label for='name'>Tên Khách</label>
+            <input
+                type='text'
+                class='form-control'
+                id='name'
+                name='name'
+                required
+            />
+        </div>
+        <div class='form-group'>
+            <label for='identityCard'>CMT/CCCD</label>
+            <input
+                type='text'
+                class='form-control'
+                id='identityCard'
+                name='identityCard'
+                required
+            />
+        </div>
+        <div class='form-group'>
+            <label for='birthDate'>Ngày Sinh</label>
+            <input
+                type='date'
+                class='form-control'
+                id='birthDate'
+                name='birthDate'
+                required
+            />
+        </div>
+
+        <button type='submit' class='btn btn-primary'>Thêm Khách</button>
+    </form>
+</div>

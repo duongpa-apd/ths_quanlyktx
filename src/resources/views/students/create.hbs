@@ -1,0 +1,93 @@
+<div class='container'>
+    <h2>Thêm Sinh Viên Mới</h2>
+    <form method='POST' action='/students/create'>
+        <div class='form-group'>
+            <label for='studentId'>Mã Sinh Viên</label>
+            <input
+                type='text'
+                id='studentId'
+                name='studentId'
+                class='form-control'
+                required
+            />
+        </div>
+        <div class='form-group'>
+            <label for='name'>Họ Tên</label>
+            <input
+                type='text'
+                id='name'
+                name='name'
+                class='form-control'
+                required
+            />
+        </div>
+        <div class='form-group'>
+            <label for='identityCard'>Số CMT/CCCD</label>
+            <input
+                type='text'
+                id='identityCard'
+                name='identityCard'
+                class='form-control'
+                required
+            />
+        </div>
+        <div class='form-group'>
+            <label for='birthDate'>Ngày Sinh</label>
+            <input
+                type='date'
+                id='birthDate'
+                name='birthDate'
+                class='form-control'
+                required
+            />
+        </div>
+        <div class='form-group'>
+            <label for='studentClass'>Lớp</label>
+            <input
+                type='text'
+                id='studentClass'
+                name='studentClass'
+                class='form-control'
+                required
+            />
+        </div>
+        <div class='form-group'>
+            <label for='hometown'>Quê Quán</label>
+            <input
+                type='text'
+                id='hometown'
+                name='hometown'
+                class='form-control'
+                required
+            />
+        </div>
+        <div class='form-group'>
+            <label for='roomId'>Phòng</label>
+            <select id='roomId' name='roomId' class='form-control' required>
+                {{#each rooms}}
+                    <option value='{{this._id}}'>Số Phòng:
+                        {{this.roomNumber}}
+                        - Loại:
+                        {{this.roomType}}
+                        - Tối đa:
+                        {{this.maxOccupancy}}
+                        - Đang ở:
+                        {{this.currentOccupancy}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class='form-group'>
+            <label for='moveInDate'>Ngày Dọn Vào</label>
+            <input
+                type='date'
+                id='moveInDate'
+                name='moveInDate'
+                class='form-control'
+                required
+            />
+        </div>
+        <button type='submit' class='btn btn-primary'>Thêm Sinh Viên</button>
+    </form>
+    <a href='/students' class='btn btn-secondary mt-3'>Quay lại danh sách sinh
+        viên</a>
+</div>

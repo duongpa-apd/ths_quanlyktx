@@ -1,0 +1,43 @@
+<div class='container'>
+    <h2>Danh sách khách đến thăm</h2>
+    <a href='/guests/create' class='btn btn-primary mb-3'>Thêm Khách</a>
+    <table class='table table-bordered'>
+        <thead>
+            <tr>
+                <th>Tên Khách</th>
+                <th>CMT/CCCD</th>
+                <th>Ngày Sinh</th>
+                <th>Ngày Gần Nhất Đến Thăm</th>
+                <th>Hành Động</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each guests}}
+                <tr>
+                    <td>{{this.name}}</td>
+                    <td>{{this.identityCard}}</td>
+                    <td>{{formatDate this.birthDate}}</td>
+                    <td>{{this.lastVisit}}</td>
+                    <td>
+                        <a href='/guests/{{this._id}}' class='btn btn-info'>Chi
+                            tiết</a>
+                        <a
+                            href='/guests/edit/{{this._id}}'
+                            class='btn btn-warning'
+                        >Cập nhật</a>
+                        <form
+                            action='/guests/delete/{{this._id}}'
+                            method='POST'
+                            style='display:inline;'
+                        >
+                            <button
+                                type='submit'
+                                class='btn btn-danger'
+                            >Xoá</button>
+                        </form>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

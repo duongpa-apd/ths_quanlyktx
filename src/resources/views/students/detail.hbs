@@ -1,0 +1,62 @@
+<div class='container'>
+    <h2>Chi Tiết Sinh Viên</h2>
+
+    <div class='card mb-3'>
+        <div class='card-body'>
+            <h5 class='card-title'>Mã Sinh Viên: {{student.studentId}}</h5>
+            <p class='card-text'><strong>Tên Sinh Viên:</strong>
+                {{student.name}}</p>
+            <p class='card-text'><strong>CMND/CCCD:</strong>
+                {{student.identityCard}}</p>
+            <p class='card-text'><strong>Ngày Sinh:</strong> {{birthDate}}</p>
+            <p class='card-text'><strong>Lớp:</strong>
+                {{student.studentClass}}</p>
+            <p class='card-text'><strong>Quê Quán:</strong>
+                {{student.hometown}}</p>
+            <p class='card-text'><strong>Phòng:</strong>
+                {{student.room.roomNumber}}</p>
+            <p class='card-text'><strong>Ngày Dọn Vào:</strong>
+                {{moveInDate}}</p>
+        </div>
+    </div>
+
+    <h3>Danh Sách Người Đến Thăm</h3>
+    {{#if student.visitors.length}}
+        <table class='table table-bordered'>
+            <thead>
+                <tr>
+                    <th>Tên Khách</th>
+                    <th>CMND/CCCD</th>
+                    <th>Ngày Đến Thăm</th>
+                    <th>Hành Động</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each student.visitors}}
+                    <tr>
+                        <td>{{this.name}}</td>
+                        <td>{{this.identityCard}}</td>
+                        <td>{{formatDate this.visitDate}}</td>
+                        <td>
+                            <a
+                                href='/guests/{{this._id}}'
+                                class='btn btn-info'
+                            >Xem Chi Tiết</a>
+                        </td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    {{else}}
+        <p>Không có khách đến thăm.</p>
+    {{/if}}
+
+    <a href='/students' class='btn btn-secondary mt-3'>Quay lại danh sách sinh
+        viên</a>
+</div>
+
+<script>
+    // Hàm format ngày (giả sử có helper trong Handlebars hoặc JavaScript)
+    function formatDate(timestamp) { const date = new Date(timestamp); return
+    date.toISOString().substring(0, 10); }
+</script>

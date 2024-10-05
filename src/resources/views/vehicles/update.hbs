@@ -1,0 +1,23 @@
+<div class='container'>
+    <h2>Sửa thông tin xe</h2>
+    <form method='POST' action='/vehicles/{{vehicle._id}}/update'>
+        <div class='form-group'>
+            <label for='licensePlate'>Biển số xe</label>
+            <input type='text' class='form-control' id='licensePlate' name='licensePlate' value='{{vehicle.licensePlate}}' required />
+        </div>
+        <div class='form-group'>
+            <label for='vehicleType'>Loại xe</label>
+            <input type='text' class='form-control' id='vehicleType' name='vehicleType' value='{{vehicle.vehicleType}}' required />
+        </div>
+        <div class='form-group'>
+            <label for='student'>Chọn sinh viên</label>
+            <select id='student' name='student' class='form-control'>
+                {{#each students}}
+                <option value='{{this._id}}' {{#ifEquals this._id ../vehicle.student._id}}selected{{/ifEquals}}>{{this.studentId}} - {{this.name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <button type='submit' class='btn btn-primary'>Cập nhật</button>
+        <a href='/vehicles' class='btn btn-secondary'>Hủy</a>
+    </form>
+</div>

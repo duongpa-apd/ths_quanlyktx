@@ -1,5 +1,20 @@
 @import 'variables';
 
+body {
+    background-color: #1e2c44; /* Màu nền giống như trong hình */
+    color: white;
+}
+
 h1 {
-    color: $red_color;
+    color: white;
+}
+
+.feature-icon img {
+    width: 64px;
+    height: 64px;
+}
+
+.feature-icon h5 {
+    color: white;
+    font-weight: bold;
 }
